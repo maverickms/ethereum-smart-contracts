@@ -38,6 +38,8 @@ contract Courses is Owned {
     );
     
     // Adding the onlyOwner modifier ensures that only the owner that creates the contract instance can add instructors
+    // bytes16 or other similar byte types only work with Ropsten test n/w or Ethereum mainnet
+    // when testing with testrpc or JavaScript VM - use string type  
     function addInstructor(address _key, uint256 _age, bytes16 _fname, bytes16 _lname) onlyOwner public {
         var instructor = creator_instructor_map[_key];
         
